@@ -1,0 +1,36 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: LSM_Konturerkennung
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Kamil
+    family-names: Braschke
+    email: braschke@uni-wuppertal.de
+    affiliation: University of Wuppertal
+  - given-names: Beawer Barwari
+identifiers:
+  - type: doi
+    value: 10.1234/zenodo.MAKEITLATERANDCHANGE
+    description: Zendo doi description
+repository-code: 'https://www.github.com/braschk/Beispielrepo'
+url: 'https://www.lsm.uni-wuppertal.de/de/research/'
+abstract: >-
+  Python script for drop shape analysis. Determines contact
+  angle, drop diameter, and drop velocity (for a series of
+  pictures).
+
+
+  Required packages are:
+keywords:
+  - drop shape analysis
+  - DSA
+  - drop
+license: GPL-3.0
+commit: commithashgoeshere
+version: '1.0'
+date-released: '2023-04-04'
