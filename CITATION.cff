@@ -12,7 +12,8 @@ authors:
     family-names: Braschke
     email: braschke@uni-wuppertal.de
     affiliation: University of Wuppertal
-  - given-names: Beawer Barwari
+  - given-names: Beawer
+    family-names: Barwari
 identifiers:
   - type: doi
     value: 10.1234/zenodo.MAKEITLATERANDCHANGE
