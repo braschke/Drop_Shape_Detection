@@ -4,13 +4,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-import time
 import os
 import glob
 import sys
+import imageio
 
 #from skimage.filters import canny
-#from skimage.filter import threshold_otsu, threshold_adaptive
 from PIL import Image
 from skimage.morphology import reconstruction
 from skimage.feature import corner_harris, corner_subpix, corner_peaks
@@ -19,14 +18,13 @@ from skimage import measure
 from skimage.feature import canny
 from scipy import misc
 from scipy import ndimage
-from skimage.filters import threshold_otsu, threshold_adaptive
+from skimage.filters import threshold_otsu
 from pylab import *
 
 debug = False # Set True for more print() info
 reset90 = True # Used to check if a contact angle of over 90 deg has been found
 less = 0
 fileEnd = "bmp"
-start = time.clock()
 
 # Set the name for the output file according to the cwd
 cwd = (os.getcwd()).split('/', 100)
@@ -69,28 +67,33 @@ y_s = []
 filelist = sorted(glob.glob("*."+fileEnd))
 
 while reset90 == True:
-	if filedif != 0: filelist = np.delete(filelist, np.arange(filedif))
-	filedif = 0
-	filenumber
-	for file in filelist:
-		if debug: print("Current file: "+str(file)+"\n")
-		if filenumber == 0: reset90 = False
-		if reset90 == False: filenumber += 1
-		# Load the image and transform to 2d-grayscale-array
-		imOrig = misc.imread(file)
-		ly, lx = imOrig.shape
-		if deadzone_trigger == "y":
-		  if dz_l == 0: dz_l = 1./lx
-		  if dz_r == 0: dz_r = 1./lx
-		  if dz_t == 0: dz_t = 1./ly
-		  if dz_b == 0: dz_b = 1./ly
-		  imOrig = imOrig[ly*dz_t : -ly*dz_b, lx*dz_l : -lx*dz_r] #Crops the image
-		ly, lx = imOrig.shape
-		imGray = color.rgb2gray(imOrig)
-		if debug: print("Time after processing the image: "+str(time.clock()-start)+"\n")
-		
-		
-		# Setting the threshold
+    if filedif != 0:
+        filelist = np.delete(filelist, np.arange(filedif))
+    filedif = 0
+    filenumber
+    for file in filelist:
+        if debug:
+            print("Current file: "+str(file)+"\n")
+        if filenumber == 0:
+            reset90 = False
+        if reset90 == False:
+            filenumber += 1
+        # Load the image and transform to 2d-grayscale-array
+        imOrig = imageio.v2.imread(file)
+        ly, lx = imOrig.shape
+        if deadzone_trigger == "y":
+            if dz_l == 0: dz_l = 1./lx
+            if dz_r == 0: dz_r = 1./lx
+            if dz_t == 0: dz_t = 1./ly
+            if dz_b == 0: dz_b = 1./ly
+            imOrig = imOrig[ly*dz_t : -ly*dz_b, lx*dz_l : -lx*dz_r] #Crops the image
+        ly, lx = imOrig.shape
+        if len(imOrig.shape)==2:
+            imGray = imOrig
+        else:
+            imGray=color.rgb2gray(imOrig)
+            
+        # Setting the threshold
 		thresh = threshold_otsu(imGray)
 		if reset90 == False: im = imGray > 0.75*thresh # > 200 can also be used, gives a small over-estimation though
 		else: im = imGray > 30
@@ -113,7 +116,6 @@ while reset90 == True:
 		# Find contours at a constant value of 0.99
 		drop_contour = 0 # Used to remember which contour belongs to the droplet
 		max_cont_len = 0
-		if debug: print("Time before contour search: "+str(time.clock()-start)+"\n")	
 		contours = measure.find_contours(im, 0.99, fully_connected='high', positive_orientation='low')
 		if debug: print("Number of contours: "+str(len(contours))+"\n")
 		for c, cont in enumerate(contours):
@@ -125,7 +127,6 @@ while reset90 == True:
 		if len(contours)==0: continue
 		if debug: print("Length of droplet_contour: "+str(contours_len)+"\n")	
 		if debug: print("Number of droplet contour: "+str(drop_contour)+"\n")
-		if debug: print("Time after contour search: "+str(time.clock()-start)+"\n")
 		
 		if len(contours) > 1: contours = np.delete(contours, np.s_[(drop_contour+1)::1])
 		if drop_contour != 0: contours = np.delete(contours, np.s_[0:drop_contour:1])
@@ -169,7 +170,6 @@ while reset90 == True:
 			if p < contours_len:
 				(rot_contours[p])[1] = math.cos(alpha_surf_rad)*(point[1]-last[1])-math.sin(alpha_surf_rad)*(point[0]-last[0])+last[1]
 				(rot_contours[p])[0] = math.sin(alpha_surf_rad)*(point[1]-last[1])+math.cos(alpha_surf_rad)*(point[0]-last[0])+last[0]
-		if debug: print("Time after rotating the image: "+str(time.clock()-start)+"\n")
 		rot_surface_y = math.sin(alpha_surf_rad)*(surface_x-last[1])+math.cos(alpha_surf_rad)*(surface_y-last[0])+last[0]
 		
 		
@@ -359,7 +359,6 @@ while reset90 == True:
 		if debug:
 			print("theta_right = "+str(theta_right)+"\n")
 			print("theta_left = "+str(theta_left)+"\n")
-			print("Time after getting the contact angles: "+str(time.clock()-start)+"\n")
 		inflection_line_x = [min_right_x, max_right_x]
 		inflection_line_y = [min_right_y, max_right_y]
 		
@@ -380,7 +379,6 @@ while reset90 == True:
 			ax.set_xticks([])
 			ax.set_yticks([])	
 			plt.show()
-			print("Time after plotting: "+str(time.clock()-start)+"\n")
 		
 		
 		# Calculation of droplet velocity and travelled distance
