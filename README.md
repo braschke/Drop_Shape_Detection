@@ -1,4 +1,4 @@
-# Drop Shape Detection
+# Drop Shape Analysis
 
 ![LSM_UniversityOfWuppertal_DSA_Title](./github_images/title.png)
 
