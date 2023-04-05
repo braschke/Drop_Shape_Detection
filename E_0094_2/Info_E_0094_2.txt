@@ -1,3 +1,0 @@
-Aufnahmerate: 120 fps
-Tropfenvolumen: 15 µl
-Pixelfaktor: 75 px/mm
