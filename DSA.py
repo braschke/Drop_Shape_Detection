@@ -21,7 +21,7 @@ from scipy import ndimage
 from skimage.filters import threshold_otsu
 from pylab import *
 
-debug = False # Set True for more print() info
+debug = True # Set True for more print() info
 reset90 = True # Used to check if a contact angle of over 90 deg has been found
 less = 0
 fileEnd = "bmp"
