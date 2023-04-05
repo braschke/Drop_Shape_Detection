@@ -11,9 +11,9 @@ This repository contains an early version of the script developed at the [Chair 
 
 
 **Input**: 
-* Single or series of images files (format must be supported by `imageio` python package, e.g. `.bmp`).
+* Single or series of image files (format must be supported by `imageio` python package, e.g. `.bmp`).
 * File format of images
-* Cameras shutter time in *seconds/frame* (irrelevant for stationary drops)
+* Camera shutter time in *seconds/frame* (irrelevant for stationary drops)
 
 **Output**: A tab-separated file `<directory-name>.dat` is generated containing the following values
 1. Filename
