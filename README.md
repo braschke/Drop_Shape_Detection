@@ -1,4 +1,4 @@
-# Drop Shape Detection
+# Drop Shape Analysis
 
 ![LSM_UniversityOfWuppertal_DSA_Title](./github_images/title.png)
 
@@ -11,9 +11,9 @@ This repository contains an early version of the script developed at the [Chair 
 
 
 **Input**: 
-* Single or series of picture files (format must be supported by `imageio` python package, e.g. `.bmp`).
-* File format of pictures
-* Cameras shutter time in *seconds/frame* (irrelevant for stationary drops)
+* Single or series of image files (format must be supported by `imageio` python package, e.g. `.bmp`).
+* File format of images
+* Camera shutter time in *seconds/frame* (irrelevant for stationary drops)
 
 **Output**: A tab-separated file `<directory-name>.dat` is generated containing the following values
 1. Filename
