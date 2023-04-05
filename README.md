@@ -4,7 +4,7 @@
 
 ## Introduction
 
-A python script for drop shape analysis of single (stationary and moving) drops on level and tilted flat substrates. It provides both contact angles, drop diameter and drop velocity. Results are determined by analyzing drop contours through polynomial and linear fits. \
+A python script for drop shape analysis of single (stationary and moving) drops on level and tilted flat substrates with a reflection plane. It provides both contact angles, drop diameter and drop velocity. Results are determined by analyzing drop contours through polynomial and linear fits. \
 This repository contains an early version of the script developed at the [Chair for Fluid Mechanics](https://www.lsm.uni-wuppertal.de/de/research/) at the [University of Wuppertal](https://www.uni-wuppertal.de/en/research/). It has been used in the following publication:
 * Pub1
 * Pub2
