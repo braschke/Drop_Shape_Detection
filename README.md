@@ -48,7 +48,7 @@ Depending on the amount of pictures the evaluation can take some time. In the ca
 ### Detailed mode
 The code performance can be analyzed by setting `debug = True`. This  prints intermediate values to the terminal as well as visualizes the shape analysis for the user. Naturally, this is not recommended when analyzing hundreds of pictures. Below is an example of such a visualization.
 
-![LSM_UniversityOfWuppertal_DSA_ExampleDetailedMode](./github_images/example_detailed.png)
+![LSM_UniversityOfWuppertal_DSA_ExampleDetailedMode](./github_images/example_detailed.png)  
 Green and red lines show how the contact angle was determined from the adjusted (i.e. rotated) contour line. The orignial contour line is shown in orange and should *always* overlap with the original contour. 
 
 ## License
