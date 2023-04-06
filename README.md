@@ -5,9 +5,7 @@
 ## Introduction
 
 A python script for drop shape analysis of single (stationary and moving) drops on level and tilted flat substrates with a reflection plane. It provides both contact angles, drop diameter and drop velocity. Results are determined by analyzing drop contours through polynomial and linear fits. \
-This repository contains an early version of the script developed at the [Chair for Fluid Mechanics](https://www.lsm.uni-wuppertal.de/de/research/) at the [University of Wuppertal](https://www.uni-wuppertal.de/en/research/). It has been used in the following publication:
-* Pub1
-* Pub2
+This repository contains an early version of the script developed at the [Chair for Fluid Mechanics](https://www.lsm.uni-wuppertal.de/de/research/) at the [University of Wuppertal](https://www.uni-wuppertal.de/en/research/).
 
 
 **Input**: 
@@ -49,7 +47,7 @@ Depending on the amount of pictures the evaluation can take some time. In the ca
 The code performance can be analyzed by setting `debug = True`. This  prints intermediate values to the terminal as well as visualizes the shape analysis for the user. Naturally, this is not recommended when analyzing hundreds of pictures. Below is an example of such a visualization.
 
 ![LSM_UniversityOfWuppertal_DSA_ExampleDetailedMode](./github_images/example_detailed.png)  
-Green and red lines show how the contact angle was determined from the adjusted (i.e. rotated) contour line. The orignial contour line is shown in orange and should *always* overlap with the original contour. 
+Green and red lines show how the contact angle was determined from the adjusted (i.e. rotated) blue contour line. The orignial contour line is shown in orange and should *always* overlap with the original contour. 
 
 ## License
 This script is licensed under GPL 3.0. Please take a look at the citation file when using this software.
