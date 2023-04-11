@@ -24,9 +24,6 @@ abstract: >-
   Python script for drop shape analysis. Determines contact
   angle, drop diameter, and drop velocity (for a series of
   pictures).
-
-
-  Required packages are:
 keywords:
   - drop shape analysis
   - DSA
