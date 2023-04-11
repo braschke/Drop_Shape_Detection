@@ -1,4 +1,4 @@
-# Drop Shape Analysis
+# Drop Shape Analysis [![DOI](https://zenodo.org/badge/623512709.svg)](https://zenodo.org/badge/latestdoi/623512709)
 
 ![LSM_UniversityOfWuppertal_DSA_Title](./github_images/title.png)
 
