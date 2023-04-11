@@ -29,6 +29,6 @@ keywords:
   - DSA
   - drop
 license: GPL-3.0
-commit: commithashgoeshere
+commit: c55dca9116d79fc0669c2b5096fbe356f194e8de
 version: '1.0'
 date-released: '2023-04-04'
