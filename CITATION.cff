@@ -16,7 +16,7 @@ authors:
     family-names: Barwari
 identifiers:
   - type: doi
-    value: 10.1234/zenodo.MAKEITLATERANDCHANGE
+    value: 10.5281/zenodo.7817867
     description: Zendo doi description
 repository-code: 'https://www.github.com/braschk/Beispielrepo'
 url: 'https://www.lsm.uni-wuppertal.de/de/research/'
